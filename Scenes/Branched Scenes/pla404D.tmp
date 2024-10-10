@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://svq6sajufigw"]
+
+[ext_resource type="Script" path="res://Scripts/Ball.gd" id="1_jj7wh"]
+[ext_resource type="Texture2D" uid="uid://cio1w3a63cyqw" path="res://Textures/Characters/kaball-fuse.png" id="2_vriqd"]
+[ext_resource type="PackedScene" uid="uid://r08peyss5n5d" path="res://Components/knock_back_component.tscn" id="3_caflb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gn44d"]
+radius = 28.0702
+
+[sub_resource type="Animation" id="Animation_ktrs2"]
+resource_name = "Invinicible"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b1lha"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oe0n7"]
+_data = {
+"Invinicible": SubResource("Animation_ktrs2"),
+"RESET": SubResource("Animation_b1lha")
+}
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("knockbackcomponent")]
+position = Vector2(20, -10)
+collision_mask = 3
+script = ExtResource("1_jj7wh")
+speed = 10.0
+knockbackcomponent = NodePath("KnockBackComponent")
+inv_frames = null
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.57, 0.57)
+shape = SubResource("CircleShape2D_gn44d")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vriqd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oe0n7")
+}
+
+[node name="KnockBackComponent" parent="." instance=ExtResource("3_caflb")]
+
+[connection signal="collider_cell" from="." to="." method="_on_collider_cell"]

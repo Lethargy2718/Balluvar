@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://p1fj863w515s"]
+
+[ext_resource type="Script" path="res://Scripts/maths.gd" id="1_o10r5"]
+[ext_resource type="PackedScene" uid="uid://svq6sajufigw" path="res://Scenes/Branched Scenes/player.tscn" id="2_vm6w4"]
+[ext_resource type="PackedScene" uid="uid://dfrn7ni36k0tw" path="res://Scenes/Branched Scenes/bullet.tscn" id="3_vrklg"]
+
+[node name="Maths" type="Node2D"]
+script = ExtResource("1_o10r5")
+
+[node name="bullet" parent="." instance=ExtResource("3_vrklg")]
+collision_layer = 128
+collision_mask = 128
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="angle" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_bottom = 16.0
+grow_horizontal = 0
+tooltip_text = "angle"
+max_value = 360.0
+
+[node name="tiimer" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 49.0
+offset_bottom = 65.0
+grow_horizontal = 0
+tooltip_text = "timer"
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="a" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 94.0
+offset_bottom = 110.0
+grow_horizontal = 0
+tooltip_text = "a"
+step = 0.1
+value = 5.0
+
+[node name="b" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 142.0
+offset_bottom = 158.0
+grow_horizontal = 0
+tooltip_text = "b
+"
+step = 0.1
+value = 5.0
+
+[node name="speed" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 185.0
+offset_bottom = 201.0
+grow_horizontal = 0
+tooltip_text = "speed"
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="frequency" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 221.0
+offset_bottom = 237.0
+grow_horizontal = 0
+tooltip_text = "frequency
+"
+min_value = 0.1
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="amplitude" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 266.0
+offset_bottom = 282.0
+grow_horizontal = 0
+tooltip_text = "ampllitude"
+min_value = 1.0
+max_value = 60.0
+step = 0.1
+value = 1.0
+
+[node name="Player" parent="." instance=ExtResource("2_vm6w4")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

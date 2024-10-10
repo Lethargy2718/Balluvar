@@ -1,0 +1,171 @@
+[gd_scene load_steps=14 format=3 uid="uid://svq6sajufigw"]
+
+[ext_resource type="Script" path="res://Scripts/Ball.gd" id="1_jj7wh"]
+[ext_resource type="Texture2D" uid="uid://1acrrntuytub" path="res://Textures/exc_mark.png" id="2_b4a3t"]
+[ext_resource type="Texture2D" uid="uid://cio1w3a63cyqw" path="res://Textures/Characters/kaball-fuse.png" id="2_vriqd"]
+[ext_resource type="Script" path="res://Scripts/health_component.gd" id="3_g1kic"]
+[ext_resource type="Script" path="res://Scripts/hitbox_component.gd" id="5_ca187"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gn44d"]
+radius = 28.0702
+
+[sub_resource type="Animation" id="Animation_ktrs2"]
+resource_name = "Invincible"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ballsprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b1lha"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ballsprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oe0n7"]
+_data = {
+"Invincible": SubResource("Animation_ktrs2"),
+"RESET": SubResource("Animation_b1lha")
+}
+
+[sub_resource type="Animation" id="Animation_8a8h2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("excmark:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n3haw"]
+resource_name = "can_dash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("excmark:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1spgf"]
+_data = {
+"RESET": SubResource("Animation_8a8h2"),
+"can_dash": SubResource("Animation_n3haw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npa1v"]
+radius = 16.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("healthcomponent")]
+position = Vector2(20, -10)
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_jj7wh")
+speed = 5.0
+healthcomponent = NodePath("HealthComponent")
+damage = 100.0
+lightdmg = 100.0
+metadata/_edit_group_ = true
+
+[node name="excmark" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+position = Vector2(-11, -14)
+scale = Vector2(2, 2)
+texture = ExtResource("2_b4a3t")
+
+[node name="ballsprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_vriqd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 8)
+scale = Vector2(0.57, 0.57)
+shape = SubResource("CircleShape2D_gn44d")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oe0n7")
+}
+
+[node name="AnimationPlayerMark" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1spgf")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "100/100"
+
+[node name="fps" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+
+[node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("animationplayer")]
+script = ExtResource("3_g1kic")
+max_health = 100.0
+animationplayer = NodePath("../AnimationPlayer")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("healthcomponent")]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("5_ca187")
+healthcomponent = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_npa1v")
+
+[connection signal="collider_cell" from="." to="." method="_on_collider_cell"]
+[connection signal="animation_finished" from="AnimationPlayerMark" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

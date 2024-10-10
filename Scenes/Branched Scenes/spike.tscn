@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://nf6i0a5rjcf5"]
+
+[ext_resource type="Texture2D" uid="uid://dku5y0hei3e5v" path="res://Textures/Spike.png" id="1_l15mi"]
+[ext_resource type="Script" path="res://Scripts/spike.gd" id="1_rb1u4"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 28
+script = ExtResource("1_rb1u4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l15mi")
+
+[node name="CollisionPolygon2Dprim" type="CollisionPolygon2D" parent="."]
+modulate = Color(0.48, 0, 0, 1)
+position = Vector2(-1.78264e-06, 5)
+scale = Vector2(0.625, 0.625)
+polygon = PackedVector2Array(2.85222e-06, -20.8, 25.6, 4.8, -25.6, 4.8)
+
+[node name="CollisionPolygon2Dsec" type="CollisionPolygon2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.788618, 0, 0.415212, 1)
+polygon = PackedVector2Array(0, 8, 16, -8, -16, -8)
