@@ -25,7 +25,7 @@ func sine_wave(alpha):
 #what i need. what i need is two custom axes where the enemy is the origin. so
 #i simply translate the point, rotate it using the rotation matrix equations,
 #then translate it back. that fixes the problem. pretty difficult to explain without
-#drawing :(
+#drawing..
 func rotate_point(point: Vector2, alpha):
 	point -= init_pos
 	var i = point.x * cos(alpha) - point.y * sin(alpha)
