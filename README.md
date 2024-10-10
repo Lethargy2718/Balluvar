@@ -17,11 +17,11 @@ Note: *Use the mouse cursor to choose your movement direction*
 # Running instructions (for Godot users only)
 I haven't exported the game yet so you can only play the debug version if you have godot installed. You will need to set tutorial.tscn as the main scene if it isn't so, and follow those steps to fix the blurry pixel art:
 
-1) After opening the project, Press on **Project** in the top left of the screen, then **Project Settings**.
-2) Choose **Textures** which you will find under **Rendering**.
+1) After opening the project, click on **Project** in the top-left corner of the screen, then select **Project Settings**.
+2) Under **Rendering**, choose **Textures**.
 3) Change the **Default Texture Filter** from **Linear** to **Nearest**
-4) Get out of project settings and press **F5** to run the game.
-5) Enjoy
+4) Exit the project settings and press **F5** to run the game.
+5) Enjoy!
 
 # Future Plans
 1) **Art**: It will evolve as the game expands and more progress is made. All textures are placeholders for now. I am also planning to learn how to use shaders and VFX to make a prettier game.
