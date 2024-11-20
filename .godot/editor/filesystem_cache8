@@ -1,0 +1,45 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1732109970
+README.md::TextFile::-1::1732109708::0::1::::<><>::
+::res://Components/::1732109708
+detection_component.tscn::PackedScene::7563754375289947860::1732109708::0::1::::<><>::res://Scripts/detection_component.gd
+health_component.tscn::PackedScene::116911927144130698::1732109708::0::1::::<><>::res://Scripts/health_component.gd
+hitbox_component.tscn::PackedScene::7511547740701370396::1732109708::0::1::::<><>::res://Scripts/hitbox_component.gd
+knock_back_component.tscn::PackedScene::1246850481379705091::1732109708::0::1::::<><>::res://Scripts/knock_back_component.gd
+lightningcomponent.tscn::PackedScene::1904950820467064295::1732109708::0::1::::<><>::
+::res://Enemies/::1732109708
+mockup_enemy.tscn::PackedScene::3094109748418798281::1732109708::0::1::::<><>::res://Scripts/mockup_enemy.gd<>uid://cio1w3a63cyqw::::res://Textures/Characters/kaball-fuse.png<>uid://1acrrntuytub::::res://Textures/exc_mark.png<>res://Scripts/health_component.gd<>res://Scripts/detection_component.gd<>res://Scripts/hitbox_component.gd<>res://Scripts/health_ui.gd
+::res://Scenes/::1732109708
+Game_over.tscn::PackedScene::5990731747497947393::1732109708::0::1::::<><>::res://Scripts/game_over.gd
+maths.tscn::PackedScene::1106827915747309446::1732109708::0::1::::<><>::res://Scripts/maths.gd<>uid://svq6sajufigw::::res://Scenes/Branched Scenes/player.tscn<>uid://dfrn7ni36k0tw::::res://Scenes/Branched Scenes/bullet.tscn
+tutorial.tscn::PackedScene::1498360625348586297::1732109708::0::1::::<><>::res://Scripts/tile_map.gd<>res://Scripts/tutorial.gd<>uid://cx2cl28nh6v7d::::res://Textures/Tileset/tileset0.png<>uid://svq6sajufigw::::res://Scenes/Branched Scenes/player.tscn<>uid://bkc2shbl0u2lx::::res://Enemies/mockup_enemy.tscn
+::res://Scenes/Branched Scenes/::1732109708
+bullet.tscn::PackedScene::7546147853875430080::1732109708::0::1::::<><>::uid://b4wmnxdcwjdrf::::res://Textures/bullet.png<>res://Scripts/bullet.gd<>res://Scripts/hitbox_component.gd
+bullet_sine.tscn::PackedScene::6153059553771847309::1732109708::0::1::::<><>::res://Scripts/bullet_sine.gd<>uid://b4wmnxdcwjdrf::::res://Textures/bullet.png<>res://Scripts/hitbox_component.gd
+player.tscn::PackedScene::1307778895671307530::1732109708::0::1::::<><>::res://Scripts/Ball.gd<>uid://1acrrntuytub::::res://Textures/exc_mark.png<>uid://cio1w3a63cyqw::::res://Textures/Characters/kaball-fuse.png<>res://Scripts/health_component.gd<>res://Scripts/hitbox_component.gd
+spike.tscn::PackedScene::924674683661609704::1732109708::0::1::::<><>::uid://dku5y0hei3e5v::::res://Textures/Spike.png<>res://Scripts/spike.gd
+spike_horizontal.tscn::PackedScene::728496469996205109::1732109708::0::1::::<><>::uid://do1xj77dmvgwe::::res://Textures/spike_right.png<>res://Scripts/spike.gd
+::res://Scripts/::1732109708
+Ball.gd::GDScript::-1::1732109708::0::1::::<>CharacterBody2D<>::
+bullet.gd::GDScript::-1::1732109708::0::1::::<>CharacterBody2D<>::
+bullet_sine.gd::GDScript::-1::1732109708::0::1::::<>Area2D<>::
+detection_component.gd::GDScript::-1::1732109708::0::1::::DetectionComponent<>Node2D<>::
+game_manager.gd::GDScript::-1::1732109708::0::1::::<>Node<>::
+game_over.gd::GDScript::-1::1732109708::0::1::::<>CanvasLayer<>::
+health_component.gd::GDScript::-1::1732109708::0::1::::HealthComponent<>Node2D<>::
+health_ui.gd::GDScript::-1::1732109708::0::1::::<>Label<>::
+hitbox_component.gd::GDScript::-1::1732109708::0::1::::HitboxComponent<>Area2D<>::
+maths.gd::GDScript::-1::1732109708::0::1::::<>Node2D<>::
+mockup_enemy.gd::GDScript::-1::1732109708::0::1::::<>StaticBody2D<>::
+spike.gd::GDScript::-1::1732109708::0::1::::<>StaticBody2D<>::
+tile_map.gd::GDScript::-1::1732109708::0::1::::<>Node2D<>::
+tutorial.gd::GDScript::-1::1732109708::0::1::::<>Node2D<>::
+::res://Textures/::1732109708
+bullet.png::CompressedTexture2D::4468066491811411067::1732109708::1732109970::1::::<><>::
+exc_mark.png::CompressedTexture2D::1825062640941133717::1732109708::1732109970::1::::<><>::
+Spike.png::CompressedTexture2D::7904303735468457025::1732109708::1732109970::1::::<><>::
+spike_right.png::CompressedTexture2D::8196993976930204752::1732109708::1732109970::1::::<><>::
+::res://Textures/Characters/::1732109708
+kaball-fuse.png::CompressedTexture2D::5364872806424960326::1732109708::1732109970::1::::<><>::
+::res://Textures/Tileset/::1732109708
+tileset0.png::CompressedTexture2D::6443065517849305951::1732109708::1732109970::1::::<><>::
