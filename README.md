@@ -1,9 +1,8 @@
 # Balluvar
 This is a simple mockup of a larger game designed to test mechanics and features. It is fully playable and functionable with some of the mechanics and systems set in place. My plan is to expand the game through slow and gradual progress into a story-based RPG with bosses and upgrades and the like (or maybe just a stupid mobile game if I burn out ..)
 
-<figure class="video_container">
-  <iframe src="BalluvarDemo.mp4" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
+# Demo
+https://github.com/user-attachments/assets/0d6cefa5-39cc-4155-9dda-fee95bb51ea3
 
 # Features
 - Move linearly in any 2D direction you specify.
